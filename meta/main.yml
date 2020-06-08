@@ -1,0 +1,14 @@
+galaxy_info:
+  author: Sitewards
+  description: Lego Let's Encrypt roles
+  company: Sitewards
+
+  license: OSL-3.0
+
+  min_ansible_version: 2.8
+
+  galaxy_tags:
+    - "lego"
+    - "Let's Encrypt"
+
+dependencies: []

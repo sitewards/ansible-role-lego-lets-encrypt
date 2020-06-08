@@ -1,0 +1,73 @@
+---
+
+# Main directory for certificates and lego
+lets_encrypt_directory_path: "/etc/ssl"
+
+lets_encrypt_lego_archive_http_path: "https://github.com/go-acme/lego/releases/download/v3.7.0/lego_v3.7.0_linux_amd64.tar.gz"
+
+#lets_encrypt_resource_name: "lego_resource_key"
+
+lets_encrypt_account_email: "mail@sitewards.com"
+
+# number of days before expiry the renewal will be performed
+lets_encrypt_renew_limit: 30
+
+#
+# Optional cron expression variables
+#
+# If not set cronjob will run as : "0 11 * * *"
+#lets_encrypt_cron_minute: 0
+#lets_encrypt_cron_hour: 11
+#lets_encrypt_cron_weekday: 5
+
+##
+# Challenge Server (live or dev/staging)
+# Dev and staging environments should be configured to use the
+# staging challenge server to avoid blocks to many recent requests
+#
+# Live:
+#lets_encrypt_server: "https://acme-v02.api.letsencrypt.org/directory"
+# Staging:
+#lets_encrypt_server: "https://acme-staging-v02.api.letsencrypt.org/directory"
+
+##
+# Resource defaults, ie values applied to all certificates if per item values are present
+#
+#lets_encrypt_common_name: "somedomain.sitewards.net"
+#lets_encrypt_csr_country_name: "DE"
+#lets_encrypt_csr_locality_name: "Hesse"
+#lets_encrypt_csr_organization_name: "Sitewards GmbH"
+#lets_encrypt_csr_organizational_unit_name: "Engineering"
+#lets_encrypt_csr_email_address: "mail@sitewards.com"
+
+##
+# List of resources rquiring lets encrypt certificates
+#
+# Full list of supported dns providers:
+# https://go-acme.github.io/lego/dns/
+#
+# Example:
+# lets_encrypt_resources:
+#   - common_name: "somedomain1.sitewards.net"
+#     challenge: "dns"
+#     provider: "route53"
+#     alt_names:
+#       - "somedomain1.sitewards.net"
+#       - "www.somedomain1.sitewards.net"
+#   - common_name: "somedomain2.sitewards.net"
+#     challenge: "http"
+#     webroot: "/var/www/html/somedomain2"
+#     alt_names:
+#       - "somedomain2.sitewards.net"
+#       - "www.somedomain2.sitewards.net"
+#   - common_name: "somedomain3.sitewards.net"
+#     challenge: "http"
+#     webroot: "/var/www/html/somedomain3"
+#     country_name: "DE"
+#     locality_name: "Hesse"
+#     organization_name: "Sitewards GmbH"
+#     organizational_unit_name: "Engineering"
+#     email: "support@sitewards.com"
+#     alt_names:
+#       - "somedomain3.sitewards.net"
+#       - "www.somedomain3.sitewards.net"

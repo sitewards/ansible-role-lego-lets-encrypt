@@ -1,0 +1,19 @@
+---
+
+- name: "Create the resource wide key"
+  openssl_privatekey:
+    path: "{{ lets_encrypt_directory_path }}/private/{{ lets_encrypt_resource_name }}.key"
+
+- name: "Create the certificate signing request"
+  openssl_csr:
+    path: "{{ lets_encrypt_directory_path }}/requests/{{ item.common_name }}.csr"
+    privatekey_path: "{{ lets_encrypt_directory_path }}/private/{{ lets_encrypt_resource_name }}.key"
+    state: "present"
+    common_name: "{{ item.common_name }}"
+    country_name: "{{ item.country_name | default(lets_encrypt_csr_country_name) }}"
+    locality_name: "{{ item.locality_name | default(lets_encrypt_csr_locality_name) }}"
+    organization_name: "{{ item.organization_name | default(lets_encrypt_csr_organization_name) }}"
+    organizational_unit_name: "{{ item.organizational_unit_name | default(lets_encrypt_csr_organizational_unit_name) }}"
+    email_address: "{{ item.email | default(lets_encrypt_csr_email_address) }}"
+    subject_alt_name: "{{ item.alt_names | map('regex_replace', '^', 'DNS:') | list | default(omit) }}"
+  with_items: "{{ lets_encrypt_resources }}"

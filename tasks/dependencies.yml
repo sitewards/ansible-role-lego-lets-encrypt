@@ -1,0 +1,19 @@
+---
+
+- name: "Install required packages DEBIAN"
+  package:
+    name: ["libcurl4-openssl-dev"]
+    state: "present"
+  when: ansible_os_family == 'Debian'
+
+- name: "Install required packages RedHat"
+  package:
+    name: ["openssl-devel"]
+    state: "present"
+  when: ansible_os_family == 'RedHat'
+
+- name: "Install required pip libraries"
+  pip:
+    name: ["cryptography ", "pyopenssl"]
+    state: "latest"
+    executable: "pip"
