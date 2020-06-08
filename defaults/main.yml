@@ -5,12 +5,12 @@ lets_encrypt_directory_path: "/etc/ssl"
 
 lets_encrypt_lego_archive_http_path: "https://github.com/go-acme/lego/releases/download/v3.7.0/lego_v3.7.0_linux_amd64.tar.gz"
 
-lets_encrypt_resource_name: "lego_resource_key"
+#lets_encrypt_resource_name: "lego_resource_key"
 
-lets_encrypt_account_email: "linux_monitor@sitewards.com"
+lets_encrypt_account_email: "mail@sitewards.com"
 
 # number of days before expiry the renewal will be performed
-lets_encrypt_renew_limit: 10
+lets_encrypt_renew_limit: 30
 
 #
 # Optional cron expression variables
@@ -38,7 +38,7 @@ lets_encrypt_renew_limit: 10
 #lets_encrypt_csr_locality_name: "Hesse"
 #lets_encrypt_csr_organization_name: "Sitewards GmbH"
 #lets_encrypt_csr_organizational_unit_name: "Engineering"
-#lets_encrypt_csr_email_address: "support@sitewards.com"
+#lets_encrypt_csr_email_address: "mail@sitewards.com"
 
 ##
 # List of resources rquiring lets encrypt certificates
