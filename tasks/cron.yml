@@ -12,7 +12,8 @@
           {% if item.challenge == 'dns' %}--dns='{{ item.provider }}'{% endif %} \
           {% if item.challenge == 'http' %}--http --http.webroot='{{ item.webroot }}'{% endif %} \
           renew \
-          --days {{ lets_encrypt_renew_limit }}"
+          --days {{ lets_encrypt_renew_limit }} \
+          > /dev/null"
     minute: "{{ lets_encrypt_cron_minute | default('0') }}"
     hour: "{{ lets_encrypt_cron_hour | default('11') }}"
     weekday: "{{ lets_encrypt_cron_weekday | default(omit) }}"
