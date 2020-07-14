@@ -14,7 +14,7 @@
         --server='{{ lets_encrypt_server }}' \
         --filename='{{ item.item.common_name }}' \
         {% if item.item.challenge == 'dns' %}--dns='{{ item.item.provider }}'{% endif %} \
-        {% if item.item.challenge == 'http' %}--webroot='{{ item.item.webroot }}'{% endif %} \
+        {% if item.item.challenge == 'http' %}--http --http.webroot='{{ item.item.webroot }}'{% endif %} \
         -a
         run"
   with_items: "{{ lets_encrypt_resources_stat.results }}"
