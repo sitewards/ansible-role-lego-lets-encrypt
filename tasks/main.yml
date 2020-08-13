@@ -5,6 +5,10 @@
 
 - include: "csr.yml"
 
-- include: "certificates.yml"
+- name: "Create Certificates"
+  include: "certificate.yml"
+  with_items: "{{ lets_encrypt_resources }}"
+  loop_control:
+      loop_var: "lets_encrypt_resource"
 
 - include: "cron.yml"
