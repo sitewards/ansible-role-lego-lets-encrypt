@@ -12,3 +12,6 @@
       loop_var: "lets_encrypt_resource"
 
 - include: "cron.yml"
+
+- include: "add-staging-as-trusted.yml"
+  when: lets_encrypt_install_as_trusted
