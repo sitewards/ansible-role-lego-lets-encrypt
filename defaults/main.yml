@@ -12,6 +12,11 @@ lets_encrypt_account_email: "mail@sitewards.com"
 # number of days before expiry the renewal will be performed
 lets_encrypt_renew_limit: 30
 
+# links the certificate to system CA folder,
+# to allow localhost connections when staging certs are used.
+# DO NOT USE ON PRODUCTION
+lets_encrypt_install_as_trusted: false
+
 #
 # Optional cron expression variables
 #
