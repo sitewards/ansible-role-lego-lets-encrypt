@@ -3,7 +3,7 @@
 - name: "Add cron job for lego renewal certificate"
   cron:
     name: "### Lego automatic certificate renewal {{ item.common_name }}"
-    job: "lego \
+    job: "{{ lets_encrypt_additional_env | default('') }} lego \
           --email='{{ lets_encrypt_account_email }}' \
           --csr='{{ lets_encrypt_directory_path }}/requests/{{ item.common_name }}.csr' \
           --path='{{ lets_encrypt_directory_path }}' \
