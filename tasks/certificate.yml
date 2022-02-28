@@ -33,9 +33,9 @@
         --filename='{{ lets_encrypt_resource.common_name }}' \
         {% if lets_encrypt_resource.challenge == 'dns' %}--dns='{{ lets_encrypt_resource.provider }}'{% endif %} \
         {% if lets_encrypt_resource.challenge == 'http' %}--http --http.webroot='{{ lets_encrypt_resource.webroot }}'{% endif %} \
-        {% if lets_encrypt_resource.preferred_chain is defined %}--preferred-chain='{{ lets_encrypt_resource.preferred_chain }}'{% endif %} \
-        -a
-        run"
+        -a \
+        run \
+        {% if lets_encrypt_resource.preferred_chain is defined %}--preferred-chain='{{ lets_encrypt_resource.preferred_chain }}'{% endif %}"
   when:
     - lets_encrypt_resource is not skipped
     - ( lets_encrypt_resource_stat_result.stat.exists == false ) or ( lets_encrypt_ressource_validity_check.failed )
