@@ -11,6 +11,7 @@
           --filename='{{ item.common_name }}' \
           {% if item.challenge == 'dns' %}--dns='{{ item.provider }}'{% endif %} \
           {% if item.challenge == 'http' %}--http --http.webroot='{{ item.webroot }}'{% endif %} \
+          {% if item.preferred_chain is defined %}--preferred-chain='{{ item.preferred_chain }}'{% endif %} \
           renew \
           --days {{ lets_encrypt_renew_limit }} \
           > /dev/null"

@@ -33,6 +33,7 @@
         --filename='{{ lets_encrypt_resource.common_name }}' \
         {% if lets_encrypt_resource.challenge == 'dns' %}--dns='{{ lets_encrypt_resource.provider }}'{% endif %} \
         {% if lets_encrypt_resource.challenge == 'http' %}--http --http.webroot='{{ lets_encrypt_resource.webroot }}'{% endif %} \
+        {% if lets_encrypt_resource.preferred_chain is defined %}--preferred-chain='{{ lets_encrypt_resource.preferred_chain }}'{% endif %} \
         -a
         run"
   when:

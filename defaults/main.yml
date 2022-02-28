@@ -3,7 +3,7 @@
 # Main directory for certificates and lego
 lets_encrypt_directory_path: "/etc/ssl"
 
-lets_encrypt_lego_archive_http_path: "https://github.com/go-acme/lego/releases/download/v3.7.0/lego_v3.7.0_linux_amd64.tar.gz"
+lets_encrypt_lego_archive_http_path: "https://github.com/go-acme/lego/releases/download/v4.6.0/lego_v4.6.0_linux_amd64.tar.gz"
 
 #lets_encrypt_resource_name: "lego_resource_key"
 
@@ -50,7 +50,7 @@ lets_encrypt_additional_env: ""
 #lets_encrypt_csr_email_address: "mail@sitewards.com"
 
 ##
-# List of resources rquiring lets encrypt certificates
+# List of resources requiring lets encrypt certificates
 #
 # Full list of supported dns providers:
 # https://go-acme.github.io/lego/dns/
@@ -60,6 +60,7 @@ lets_encrypt_additional_env: ""
 #   - common_name: "somedomain1.sitewards.net"
 #     challenge: "dns"
 #     provider: "route53"
+#     preferred_chain: "ISRG Root X1"
 #     alt_names:
 #       - "somedomain1.sitewards.net"
 #       - "www.somedomain1.sitewards.net"
