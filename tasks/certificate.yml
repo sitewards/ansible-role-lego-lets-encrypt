@@ -25,7 +25,7 @@
     - lets_encrypt_ressource_validity_check.failed
 
 - name: "Create certificates"
-  shell: "lego \
+  shell: "{{ lets_encrypt_additional_env | default('') }} lego \
         --email='{{ lets_encrypt_account_email }}' \
         --csr='{{ lets_encrypt_directory_path }}/requests/{{ lets_encrypt_resource.common_name }}.csr' \
         --path='{{ lets_encrypt_directory_path }}' \

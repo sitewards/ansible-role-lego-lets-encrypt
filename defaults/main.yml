@@ -17,6 +17,10 @@ lets_encrypt_renew_limit: 30
 # DO NOT USE ON PRODUCTION
 lets_encrypt_install_as_trusted: false
 
+# additional env vars for lego calls,
+# e.g. to provide auth credentials for DNS solvers
+lets_encrypt_additional_env: ""
+
 #
 # Optional cron expression variables
 #
