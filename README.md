@@ -9,11 +9,11 @@ During deployment certificates are created only if thy do not exist, however
 they are not renewed at this stage.  
 Cron jobs for renewal are set up for all domains, this is the only mechanism of renewal in use.  
 
-Currently "dns" and "http" challenges are supported.
+Currently, "dns" and "http" challenges are supported.
 
 
 ## Requirements
- - Ansible 2.8.0+
+ - Ansible 2.10.0+
  - Python21
  - pip (installs dependencies if required)
 
@@ -23,7 +23,7 @@ Add this role to your requirements file:
 
 ```
 - src: "https://github.com/sitewards/ansible-role-lego-lets-encrypt"
-  version: "1.0.0"
+  version: "3.0.0"
   name: "sitewards.lego-lets-encrypt"
 ```
 
@@ -60,7 +60,7 @@ roles
 
 ## Limitations
 
-Currently this role does not provide mechanism of authentication against selected dns providers, this has to be handled externally
+Currently, this role does not provide mechanism of authentication against selected dns providers, this has to be handled externally
  
 ## Configuration
 The variables that are available are defined in [defaults/main.yml](./defaults/main.yml). There are various requirements; 
