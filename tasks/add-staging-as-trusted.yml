@@ -1,11 +1,11 @@
 - name: "add folder for staging CA files"
-  file:
+  ansible.builtin.file:
       path: "/usr/local/share/ca-certificates/letsencrypt-staging/"
       state: "directory"
   become: true
 
 - name: "Download let's encrypt RSA intermedia cert"
-  get_url:
+  ansible.builtin.get_url:
       url: "https://letsencrypt.org/certs/staging/letsencrypt-stg-int-r3.pem"
       dest: "/usr/local/share/ca-certificates/letsencrypt-staging/letsencrypt-stg-int-r3.crt"
       checksum: "sha256:a7b89d7955532169a3660865f5e394aa0e180c4d00ca02ebd677ad07242b2150"
@@ -14,7 +14,7 @@
   notify: "Update CA index"
 
 - name: "Download let's encrypt ECDSA intermedia cert"
-  get_url:
+  ansible.builtin.get_url:
       url: "https://letsencrypt.org/certs/staging/letsencrypt-stg-int-e1.pem"
       dest: "/usr/local/share/ca-certificates/letsencrypt-staging/letsencrypt-stg-int-e1.crt"
       checksum: "sha256:a67504501308ffa5ba2a9e1f9dd4fd19aabc8918e29bc9dc2074209533140208"
@@ -23,7 +23,7 @@
   notify: "Update CA index"
 
 - name: "Download let's encrypt RSA root cert"
-  get_url:
+  ansible.builtin.get_url:
       url: "https://letsencrypt.org/certs/staging/letsencrypt-stg-root-x1.pem"
       dest: "/usr/local/share/ca-certificates/letsencrypt-staging/letsencrypt-stg-root-x1.crt"
       checksum: "sha256:3a5e1171e5f5c2d41522d438f225602e4236a68fb29c32399a95921a4ae80e73"
@@ -32,7 +32,7 @@
   notify: "Update CA index"
 
 - name: "Download let's encrypt ECDSA root cert"
-  get_url:
+  ansible.builtin.get_url:
       url: "https://letsencrypt.org/certs/staging/letsencrypt-stg-root-x2.pem"
       dest: "/usr/local/share/ca-certificates/letsencrypt-staging/letsencrypt-stg-root-x2.crt"
       checksum: "sha256:497c36c1b50c0daff30870d5908c9b97af29223d5510c5e6c24957d0cc502fb8"

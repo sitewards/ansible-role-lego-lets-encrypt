@@ -1,7 +1,7 @@
 ---
 
 - name: "Add cron job for lego renewal certificate"
-  cron:
+  ansible.builtin.cron:
     name: "### Lego automatic certificate renewal {{ item.common_name }}"
     job: "{{ lets_encrypt_additional_env | default('') }} lego \
           --email='{{ lets_encrypt_account_email }}' \

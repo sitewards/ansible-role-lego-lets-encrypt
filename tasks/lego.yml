@@ -1,34 +1,34 @@
 ---
 
 - name: "Ensure directory for csr exists"
-  file:
+  ansible.builtin.file:
     path: "{{ lets_encrypt_directory_path }}/requests"
     state: directory
 
 - name: "Ensure directory for private keys exists"
-  file:
+  ansible.builtin.file:
     path: "{{ lets_encrypt_directory_path }}/private"
     state: directory
 
 - name: "Ensure directory for certificates exists"
-  file:
+  ansible.builtin.file:
     path: "{{ lets_encrypt_directory_path }}/certificates"
     state: directory
 
 - name: "Ensure directory for letsencrypt exists"
-  file:
+  ansible.builtin.file:
     path: "{{ lets_encrypt_directory_path }}/lego"
     state: directory
 
 - name: "Download Lego (Let's Encrypt client)"
-  unarchive:
+  ansible.builtin.unarchive:
     src: "{{ lets_encrypt_lego_archive_http_path }}"
     dest: "{{ lets_encrypt_directory_path }}/lego"
     creates: "{{ lets_encrypt_directory_path }}/lego/lego"
     remote_src: yes
 
 - name: "Create lego link in bin folder"
-  file:
+  ansible.builtin.file:
     src: "{{ lets_encrypt_directory_path }}/lego/lego"
     dest: "/usr/bin/lego"
     state: link

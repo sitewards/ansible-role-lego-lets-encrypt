@@ -1,11 +1,11 @@
 ---
 
 - name: "Create the resource wide key"
-  openssl_privatekey:
+  community.crypto.openssl_privatekey:
     path: "{{ lets_encrypt_directory_path }}/private/{{ lets_encrypt_resource_name }}.key"
 
 - name: "Create the certificate signing request"
-  openssl_csr:
+  community.crypto.openssl_csr:
     path: "{{ lets_encrypt_directory_path }}/requests/{{ item.common_name }}.csr"
     privatekey_path: "{{ lets_encrypt_directory_path }}/private/{{ lets_encrypt_resource_name }}.key"
     state: "present"
