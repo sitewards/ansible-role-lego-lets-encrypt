@@ -13,6 +13,7 @@
           {% if item.challenge == 'http' %}--http --http.webroot='{{ item.webroot }}'{% endif %} \
           renew \
           --days {{ lets_encrypt_renew_limit }} \
+          {% if item.preferred_chain is defined %}--preferred-chain='{{ item.preferred_chain }}'{% endif %} \
           > /dev/null"
     minute: "{{ lets_encrypt_cron_minute | default('0') }}"
     hour: "{{ lets_encrypt_cron_hour | default('11') }}"
